@@ -1,6 +1,6 @@
 import mogoose from "mongoose"
 
-const User = new mogoose.Schema(
+const userSchema = new mogoose.Schema(
     {
         name: {
             type: String
@@ -27,4 +27,5 @@ const User = new mogoose.Schema(
     
 )
 
-export default mogoose.model(User)
+const User = mogoose.model('User', userSchema)
+export default User

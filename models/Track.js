@@ -1,6 +1,6 @@
 import mogoose from "mongoose"
 
-const Track = new mogoose.Schema(
+const TrackSchema = new mogoose.Schema(
     {
         name: {
             type: String
@@ -9,7 +9,7 @@ const Track = new mogoose.Schema(
             type: Number
         },
         cover:{
-            type:String,
+            type: String,
             validate:{
                 validator:(req) =>{
                     return true;
@@ -46,4 +46,6 @@ const Track = new mogoose.Schema(
     
 )
 
-export default mogoose.model(Track)
+const Track = mogoose.model('Track', TrackSchema)
+
+export default Track

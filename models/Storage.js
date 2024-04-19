@@ -1,6 +1,6 @@
 import mogoose from "mongoose"
 
-const Storage = new mogoose.Schema(
+const storageSchema = new mogoose.Schema(
     {
         url: {
             type: String
@@ -15,4 +15,6 @@ const Storage = new mogoose.Schema(
     
 )
 
-export default mogoose.model(Storage)
+const Storage = mogoose.model('Storage', storageSchema)
+
+export default Storage

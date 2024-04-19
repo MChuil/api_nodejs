@@ -4,13 +4,17 @@ import db from "./config/db.js"
 import userRoutes from './routes/userRoutes.js'
 import trackRoutes from './routes/trackRoutes.js'
 import storageRoutes from './routes/storageRoutes.js'
+import dotenv from 'dotenv'
 
+dotenv.config({path: '.env'})
 
 //crear la app
 const app = express();
 
 //habilitar cors
 app.use(cors())
+
+app.use(express.json())
 
 //conexión a DB
 db()
