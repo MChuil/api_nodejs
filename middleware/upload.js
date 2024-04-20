@@ -9,7 +9,7 @@ const storage = multer.diskStorage({
         const ext = file.originalname.split('.')
         const filename = `file-${Date.now()}.${ext[1]}`  //file-195656565.jpg
         cb(null, filename)
-    }   
+    }
 })
 
 const uploadFile = multer({storage})
