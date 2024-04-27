@@ -1,5 +1,3 @@
-
-
 const apiAuth = (req, res, next) =>{
     try {
         const { token } = req.headers

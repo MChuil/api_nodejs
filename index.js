@@ -4,6 +4,7 @@ import db from "./config/db.js"
 import userRoutes from './routes/userRoutes.js'
 import trackRoutes from './routes/trackRoutes.js'
 import storageRoutes from './routes/storageRoutes.js'
+import authRoutes from './routes/authRoutes.js'
 import dotenv from 'dotenv'
 
 dotenv.config({path: '.env'})
@@ -23,6 +24,7 @@ db()
 app.use('/users', userRoutes) 
 app.use('/tracks', trackRoutes)
 app.use('/storage', storageRoutes)
+app.use('/auth', authRoutes)
 
 //configurar puerto y levantar servidor
 const port = process.env.PORT || 3000

@@ -16,12 +16,13 @@ const getItem = async (req, res)=>{
         // const req = matchedData(req)
         const { id } = req.params
         const data = await Track.findById(id)
+        if(data.deleted){
+            res.send('No encontrado...');
+        }
         res.send(data)
     }catch(e){
         handleHttpError(res, 'Error en ver un track')
     }
-
-
 }
 
 const createItem = async (req, res)=>{
@@ -43,10 +44,11 @@ const updateItem = async (req, res)=>{
         handleHttpError(res, 'No se pudo actualizar el track, intente nuevamente')
     }
 }
+
 const deleteItem = async(req, res)=>{
     try{
         const {id } = req.params
-        const response = await Track.deleteOne({'_id': id})
+        const response = await Track.delete({'_id': id})
         res.send(response)
     }catch(e){
         handleHttpError(res, 'No se pudo eliminar el track, intente nuevamente')

@@ -1,4 +1,5 @@
 import mogoose from "mongoose"
+import mongooseDelete from 'mongoose-delete'
 
 const TrackSchema = new mogoose.Schema(
     {
@@ -45,6 +46,8 @@ const TrackSchema = new mogoose.Schema(
     }
     
 )
+
+TrackSchema.plugin(mongooseDelete, { deletedBy: true, deletedByType: String })
 
 const Track = mogoose.model('Track', TrackSchema)
 

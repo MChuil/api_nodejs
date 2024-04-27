@@ -1,5 +1,6 @@
 import mogoose from "mongoose"
 
+
 const storageSchema = new mogoose.Schema(
     {
         url: {
@@ -14,6 +15,8 @@ const storageSchema = new mogoose.Schema(
     }
     
 )
+
+//TODO: pendiente eliminación logica
 
 const Storage = mogoose.model('Storage', storageSchema)
 

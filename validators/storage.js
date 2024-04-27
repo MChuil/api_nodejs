@@ -1,16 +1,15 @@
 import {body, validationResult} from 'express-validator'
 
 const validateCreate = [
-    body('image')
+    body('file')
         .exists()
-        .notEmpty()
-        .isLength({min:5, max:100}),
+        .notEmpty(),
         (req, res, next) =>{
             try{
                 validationResult(req).throw()
                 return next()
             }catch(err){
-                res.status('403')
+                res.status(403)
                 res.send({errors : err.array()})
             }
         }
